@@ -1,0 +1,17 @@
+* összes oszlop (mező, field)
+
+
+feltétel pl.    "OKTV" Or "vegyes"
+
+
+Like "*verseny*"                     bármilyen karaktereket verseny követ majd még ahárhány karakter lehet utána
+
+
+második betű a 'r'
+
+LIKE "?r*"
+
+oszlop átnevezése
+
+Versenynév:versenynev
+
