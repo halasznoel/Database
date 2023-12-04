@@ -1,0 +1,26 @@
+CREATE TABLE tanszek(
+	tanszek_id INT(10) NOT NULL PRIMARY KEY,
+	tanszek_neve VARCHAR(64) NOT NULL,
+	kar_id INT(10) FOREIGN KEY
+);
+
+CREATE TABLE kar(
+	kar_id INT(10) NOT NULL PRIMARY KEY,
+	kar_neve VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE tanar(
+	tanar_id INT(10) NOT NULL PRIMARY KEY,
+	tanar_neve VARCHAR(64) NOT NULL,
+	tanar_note VARCHAR(120)
+);
+
+CREATE TABLE eloadas(
+	eloadas_id INT(10) NOT NULL PRIMARY KEY AUTOINCREMENT,
+	eloadas_cime VARCHAR(64) NOT NULL,
+	eloadas_ido VARCHAR(64) NOT NULL,
+	eloadas_helye VARCHAR(64) NOT NULL,
+	tanar_id INT(10) NOT NULL FOREIGN KEY,
+	tanfelev_id INT(10) NOT NULL FOREIGN KEY,
+	tanszek_id INT(10) NOT NULL FOREIGN KEY
+);

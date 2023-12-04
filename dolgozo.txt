@@ -1,0 +1,60 @@
+
+CREATE DATABASE dolgozok
+DEFAULT CHARACTER SET utf8 
+COLLATE utf8_hungarian_ci;
+
+
+
+USE Dolgozok;
+
+Drop Dolgozo;
+
+CREATE TABLE Dolgozo (
+    torzsszam varchar(20) PRIMARY KEY NOT NULL,
+    nev varchar(20) NOT NULL,
+    szulhely varchar(20) NOT NULL,
+    szulido date NOT NULL,
+    fizetes int(10) NOT NULL
+);
+
+INSERT INTO `dolgozo` (`torzsszam`, `nev`, `szulhely`, `szulido`, `fizetes`) VALUES
+('T234578', 'Kiss István', 'Eger', '1968-12-11', 120000),
+('T429877', 'Kovács János', 'Szeged', '1967-05-12', 120000),
+('T456734', 'Nagy József', 'Budapest', '1972-01-30', 150000),
+('T768545', 'Vári Ödön', 'Budapest', '1958-07-12', 210000),
+('T429878', 'Kováts János', 'Szeged', '1967-05-12', 120000)
+; 
+
+SELECT COUNT(dolgozo.nev) AS 'A dolgozók száma', 
+SUM(dolgozo.fizetes) AS 'A dolgozók összes fizetése', 
+AVG(dolgozo.fizetes) AS 'A dolgozók átlagos fizetése' FROM dolgozo
+
+SELECT dolgozo.nev, LEFT(dolgozo.szulido,4) AS 'A dolgozó születési éve' FROM dolgozo
+
+SELECT nev, fizetes from dolgozo where fizetes >= 150000
+
+SELECT nev, fizetes FROM dolgozo WHERE szulido > 1960-01-01 AND fizetes >= 100000
+
+SELECT nev, fizetes FROM dolgozo WHERE fizetes BETWEEN 100000 AND 120000
+
+SELECT nev, fizetes FROM dolgozo WHERE fizetes NOT IN(100000,150000)
+
+SELECT nev, szulhely FROM dolgozo WHERE szulhely IN("Eger", "Szeged", "Debrecen")
+
+SELECT * FROM `dolgozo` WHERE nev LIKE "Kovács%"
+
+SELECT * FROM `dolgozo` WHERE nev LIKE "K__s%"
+
+SELECT * FROM dolgozo WHERE ((LEFT(torzsszam,2) LIKE "T4") AND szulhely NOT IN ("Szeged", "Debrecen")) OR ((LEFT(torzsszam,2) LIKE "T2") AND (YEAR(szulhely) = 1968))
+
+SELECT szulhely AS 'Születési hely', COUNT(torzsszam) AS 'A dolgozók száma' FROM dolgozo GROUP BY szulhely
+
+SELECT szulhely AS 'Születési hely', SUM(fizetes) AS 'A dolgozók összes fizetése', AVG(fizetes) AS 'A dolgozók átlagfizetése' FROM dolgozo GROUP BY szulhely
+
+SELECT szulhely AS 'Születési hely', AVG(fizetes) AS 'A dolgozók átlagfizetése' FROM dolgozo GROUP BY szulhely HAVING AVG(fizetes) < 120000
+
+SELECT nev, fizetes FROM dolgozo ORDER BY nev DESC
+
+SELECT nev, fizetes FROM dolgozo ORDER BY fizetes DESC, nev
+
+SELECT DISTINCT fizetes FROM dolgozo
