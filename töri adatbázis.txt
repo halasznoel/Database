@@ -1,0 +1,43 @@
+CREATE DATABASE kovetelmeny
+DEFAULT CHARACTER SET utf8 
+COLLATE utf8_hungarian_ci;
+
+
+CREATE TABLE fogalmak(
+	id int(255) PRIMARY KEY NOT NULL,
+	fogalom varchar(255) NOT NULL,
+	leiras varchar(255) NOT NULL
+	kor int(255) NOT NULL
+);
+
+CREATE TABLE evszamok(
+	id int(255) PRIMARY KEY NOT NULL,
+	evszam int(255) NOT NULL,
+	leiras varchar(255) NOT NULL
+);
+
+CREATE TABLE topografia(
+	id int(255) PRIMARY KEY NOT NULL,
+	orszagok varchar(255) NOT NULL,
+	leiras varchar(255) NOT NULL
+);
+
+CREATE TABLE szemelyek(
+	id int(255) PRIMARY KEY NOT NULL,
+	szemely_nev varchar(255) NOT NULL,
+	leiras varchar(255) NOT NULL
+);
+
+CREATE TABLE kor(
+	id int(255) PRIMARY KEY NOT NULL,
+	leiras varchar(255) NOT NULL,
+	kor int(255) NOT NULL
+);
+
+
+
+INSERT INTO `fogalmak`() VALUES
+(),
+(),
+(),
+();

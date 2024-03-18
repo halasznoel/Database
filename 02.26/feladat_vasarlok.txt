@@ -1,0 +1,18 @@
+1.	Feladat: ABC adatbázis létrehozása
+CREATE DATABASE ABC
+DEFAULT CHARACHTER SET utf8
+COLLATE utf8_hungarian_ci;
+CREATE TABLE vasarlok_tabla(
+	ID INT(255) NOT NULL PRIMARY KEY,
+	vezeteknev VARCHAR(255) NOT NULL,
+	keresztnev VARCHAR(255) NOT NULL,
+	lakhely VARCHAR(255) NOT NULL,
+	szuletesi_ev INT(4) NOT NULL
+);
+
+CREATE TABLE vasarlasok_tabla(
+	vasarlasID INT(255) NOT NULL PRIMARY KEY,
+	vasarloID INT(255) NOT NULL,
+	termek VARCHAR(255) NOT NULL,
+	darab INT(255) NOT NULL
+);

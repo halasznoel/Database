@@ -1,0 +1,11 @@
+2.	Feladat:
+INSERT INTO vasarlok_tabla(`ID`,`vezeteknev`,`keresztnev`,`lakhely`,`szuletesi_ev`) VALUES
+('1','Horváth','Tamás','Budapest','1989'),
+('2','Lakatos','Dezső','Debrecen','1961'),
+('5','Losonczi','Léma','Nyíregyháza','2005')
+
+INSERT INTO vasarlasok_tabla(`vasarlasID`,`vasarloID`,`termek`,`darab`) VALUES
+('1','1','laptop','1'),
+('2','5','telefon','2'),
+('3','2','TV','1'),
+('4','2','egér','5')

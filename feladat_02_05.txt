@@ -1,0 +1,23 @@
+147. Hozza létre az alábbi szerkezetű, DOLGOZOK nevű táblát: 
+CREATE TABLE DOLGOZOK
+INSERT INTO DOLGOZOK(
+	KOD VARCHAR2(4) NOT NULL,
+	NEV VARCHAR2(30) NOT NULL,
+	FIZETES INT(6),
+	SZUL DATE
+);
+
+148. Bővítse a DOLGOZOK táblát a CIM oszloppal, melynek típusa VARCHAR2(30)! A NEV hosszát módosítsa 40-re! 
+ALTER TABLE DOLGOZOK ADD CIM VARCHAR2(30);
+ALTER TABLE DOLGOZOK MODIFY (NEV VARCHAR2(40));
+
+149. Hozza létre az UJ_RESZL1 nevű táblát, melynek szerkezete azonos a RESZLEG nevű tábla szerkezetével! 
+CREATE TABLE UJ_RESZL1 AS
+SELECT * FROM RESZLEG WHERE 1 = 0;
+
+150. Hozza létre az UJ_RESZL2 nevű táblát, melynek szerkezete és tartalma azonos a RESZLEG nevű tábla szerkezetével és tartalmával! 
+CREATE TABLE UJ_RESZL2 AS
+SELECT * FROM RESZLEG;
+
+151. Nevezze át az UJ_RESZL2 táblát RESZLEG2 névre!
+ALTER TABLE UJ_RESZL2 RENAME TO RESZLEG2;

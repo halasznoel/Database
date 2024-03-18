@@ -1,0 +1,15 @@
+ feladat_01
+
+102. Irassa ki az AUTOK táblából az átlagos beszerzési árat!
+	SELECT AVG(ar) AS atlagos_beszerzesi_ar FROM AUTOK;
+103. Irassa ki a legtöbbet és a legkevesebbet futott autó adatait!
+	SELECT MAX(`futott_km`) AND MIN(`futott_km`) FROM `AUTOK`;
+	SELECT * FROM AUTOK ORDER BY FutottKilometer DESC LIMIT 1;
+104. Irassa ki, hogy az AUTOK táblában hány autó adatai szerepelnek!
+	SELECT COUNT(*) AS AutokSzama FROM `AUTOK`;
+105. Irassa ki típusnevenként csoportosítva az átlagos kilométeróra állást
+	SELECT tipus, AVG(kilometeroraallas) AS AtlagosKilometerOra FROM `AUTOK` GROUP BY tipus; 
+106. Írja ki az ALKALMAZOTT tábla alapján a maxímálís és minimális fizetések eltérését az átlagtál!
+	SELECT MAX(Fizetes) - MIN(Fizetes) AS FizetesEltunes, AVG(Fizetes) AS AtlagFizetes FROM ALKALMAZOTT; 
+107. Irassa ki típusnevenként csoportosítva a kiadható autók számát és átlagos beszerzési árát!
+	SELECT Tipus, COUNT(*) AS KiadhatoAutokSzama, AVG(BeszerzesiAr) AS AtlagosBeszerzesiAr FROM AUTOK WHERE KiadasDatuma IS NULL GROUP BY Tipus; 
